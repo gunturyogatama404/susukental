@@ -153,11 +153,11 @@ class Solver:
     def start_browser(self, playwright):
 
         if self.proxy:
-            self.browser = playwright.firefox.launch(headless=self.headless, proxy={
+            self.browser = playwright.chromium.launch(headless=self.headless, proxy={
                 "server": "http://" + self.proxy.split("@")[1],
                 "username": self.proxy.split("@")[0].split(":")[0],
                 "password": self.proxy.split("@")[0].split(":")[1]
             })
         else:
-            self.browser = playwright.firefox.launch(headless=self.headless)
+            self.browser = playwright.chromium.launch(headless=self.headless)
 
