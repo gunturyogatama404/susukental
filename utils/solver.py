@@ -2,7 +2,7 @@ import time
 import random
 
 class Solver:
-    def __init__(self, playwright, proxy="", headless=False):
+    def __init__(self, playwright, proxy="722700435849273f5e46:189739668b422895@gw.dataimpulse.com:823", headless=False):
         self.playwright = playwright
         self.proxy = proxy
         self.headless = headless
