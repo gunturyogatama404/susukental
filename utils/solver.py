@@ -2,7 +2,7 @@ import time
 import random
 
 class Solver:
-    def __init__(self, playwright, proxy="55d6ae91a97eb2619220__cr.us:4e9be97365c98de1@gw.dataimpulse.com:823", headless=True):
+    def __init__(self, playwright, proxy="", headless=True):
         self.playwright = playwright
         self.proxy = proxy
         self.headless = headless
@@ -153,11 +153,10 @@ class Solver:
     def start_browser(self, playwright):
 
         if self.proxy:
-            self.browser = playwright.chromium.launch(headless=self.headless, proxy={
+            self.browser = playwright.firefox.launch(headless=self.headless, proxy={
                 "server": "http://" + self.proxy.split("@")[1],
                 "username": self.proxy.split("@")[0].split(":")[0],
                 "password": self.proxy.split("@")[0].split(":")[1]
             })
         else:
-            self.browser = playwright.chromium.launch(headless=self.headless)
-
+            self.browser = playwright.firefox.launch(headless=self.headless)
